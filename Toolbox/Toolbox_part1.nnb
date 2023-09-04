@@ -1,0 +1,67 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "To check that all the system is set up properly, it is common to use the \"Hello World!\" test.\r\nIn this case, for making an output, we use:\r\nconsole.log(whatever_we_want_to_output);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "console.log(\"Hola mundo!\")"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Hola mundo!",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Because we are using Node REPL, sometimes consol.log doesn't work properly, so we are going to use display.\r\nWe import the required kernel and put it in a constant called \"display\""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const {display} = require('node-kernel');\r\ndisplay.text(\"Hola mundo!\");"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hola mundo!"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

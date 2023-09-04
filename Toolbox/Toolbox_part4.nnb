@@ -1,0 +1,1240 @@
+{
+    "cells": [
+        {
+            "language": "javascript",
+            "source": [
+                "const {display} = require('node-kernel');"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Loops: What machines are good for, iterations."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/Oe-fMIIqnT8AAAAM/loop-infinite.gif\" height=\"200\"/>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<img src=\"https://media.tenor.com/Oe-fMIIqnT8AAAAM/loop-infinite.gif\" height=\"200\"/>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "For loop: Most used"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let names = [\"Joe\",\"Cris\",\"Robert\",\"Ann\"];\r\nfor(let name of names){\r\n    display.text(\"Hello \" + name + \", how are you today?\");\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Joe, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Cris, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Robert, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Ann, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "For loop with index"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "for(let numIteration = 0; numIteration <= 5; numIteration++){\r\n    display.text(\"Iteration number: \" + numIteration);\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 0"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 1"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 2"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 3"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 4"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "for(let i = 0; i <= 5; i++){\r\n    display.text(\"Iteration number: \" + i);\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 0"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 1"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 2"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 3"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 4"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "for(let i = 5; i >= 0; i--){\r\n    display.text(\"Iteration number: \" + i);\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 4"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 3"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 2"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 1"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Iteration number: 0"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let names = [\"Joe\",\"Cris\",\"Robert\",\"Ann\"];\r\nfor(let i = 0; i < names.length; i++){\r\n    display.text(\"Hello \" + names[i] + \", how are you today?\");\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Joe, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Cris, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Robert, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Ann, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let numbers = [2,13,16,24,35,46,49,61];\r\nfor(let i = 0; i < numbers.length; i++){\r\n    if(numbers[i] % 2 !== 0){\r\n        display.text(\"I found an odd number: \" + numbers[i]);\r\n    }\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "I found an odd number: 13"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "I found an odd number: 35"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "I found an odd number: 49"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "I found an odd number: 61"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let numbers = [2,13,16,24,35,46,49,61];\r\nlet oddNumbers = [];\r\nfor(let i = 0; i < numbers.length; i++){\r\n    if(numbers[i] % 2 !== 0){\r\n        oddNumbers.push(numbers[i]);\r\n    }\r\n}\r\ndisplay.text(oddNumbers);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "13,35,49,61"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "forEach loop"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let names = [\"Joe\",\"Cris\",\"Robert\",\"Ann\"];\r\nnames.forEach(function(name) {display.text(\"Hello \" + name + \", how are you today?\");})"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Joe, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Cris, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Robert, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Ann, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let names = [\"Joe\",\"Cris\",\"Robert\",\"Ann\"];\r\nnames.forEach((name) => display.text(\"Hello \" + name + \", how are you today?\"))"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Joe, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Cris, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Robert, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello Ann, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let names = [\"Joe\",\"Cris\",\"Robert\",\"Ann\"];\r\nnames.forEach((name, index) => display.text(\"Index: \" + index + \" - Hello \" + name + \", how are you today?\"))"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 0 - Hello Joe, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 1 - Hello Cris, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 2 - Hello Robert, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 3 - Hello Ann, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "While loop: Attention is needed because it needs an escape point to finish the loop"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let names = [\"Joe\",\"Cris\",\"Robert\",\"Ann\"];\r\nlet index = 0;\r\nwhile(index < names.length){\r\n    display.text(\"Index: \" + index + \" - Hello \" + names[index] + \", how are you today?\");\r\n    index++;\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 0 - Hello Joe, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 1 - Hello Cris, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 2 - Hello Robert, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 3 - Hello Ann, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "do while loop: Same as while loop but it executes at least once, the first time"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let names = [\"Joe\",\"Cris\",\"Robert\",\"Ann\"];\r\nlet index = 0;\r\ndo{\r\n    display.text(\"Index: \" + index + \" - Hello \" + names[index] + \", how are you today?\");\r\n    index++;\r\n} while(index < names.length)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 0 - Hello Joe, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 1 - Hello Cris, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 2 - Hello Robert, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Index: 3 - Hello Ann, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISES!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// from the following array, get only the names that start with letter a and display those names, use whatever loop you like\r\nlet names = [\"ann\", \"jack\", \"Anthony\", \"John\", \"christopher\",\"Andrew\"];\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// using any loop, find the addition of the next array of numbers\r\nlet numbersToAdd = [1, 2, 3, 4, 5];"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// using ChatGPT ask for a function that calculate the area of each triangle and display the output providing height and base using an array of arrays\r\n// [[base, height],[base,height],...]\r\nlet trianglesBaseAndHeight = [[3,5],[4,2],[5,3]];\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Objects: A data structure for a storing related data"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/3LxJsm1trhUAAAAd/oops-and-i-oot.gif\" height=200/>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<img src=\"https://media.tenor.com/3LxJsm1trhUAAAAd/oops-and-i-oot.gif\" height=200/>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let brand = \"Seat\";   \r\nlet horsePower = 150;\r\nlet isDiesel = false;"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// An object is another type, like string, boolean or number\r\nlet car = {\r\n    brand: \"Seat\",\r\n    horsePower: 150,\r\n    isDiesel: false\r\n}\r\ndisplay.text(car.brand);\r\ndisplay.text(car.horsePower);\r\ncar.horsePower = 120;\r\ndisplay.text(car.horsePower);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Seat"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "150"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "120"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// To enumerate the items of an object we use the for...in loop\r\nlet car = {\r\n    brand: \"Seat\",\r\n    horsePower: 150,\r\n    isDiesel: false\r\n}\r\nfor(let item in car){\r\n    display.text(item);\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "brand"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "horsePower"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "isDiesel"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let car = {\r\n    brand: \"Seat\",\r\n    horsePower: 150,\r\n    isDiesel: false,\r\n    startEngine: function() { display.text(\"Starting engines...Ready!\")}\r\n}\r\ndisplay.text(car.brand);\r\ndisplay.text(car.horsePower);\r\ncar.horsePower = 120;\r\ndisplay.text(car.horsePower);\r\ncar.startEngine();"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Seat"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "150"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "120"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Starting engines...Ready!"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let monster = {\r\n    name: \"Blanka\",\r\n    life: 100,\r\n    isDisoriented: false,\r\n    attacks: [\"Electric Thunder\",\"Rolling Attack\",\"Backstep Rolling\",\"Vertical Rolling\"],\r\n    attack: function() {\r\n        let damage = Math.floor(Math.random() * 100);\r\n        let attackType = Math.floor(Math.random() * 4);\r\n        return this.name + \" attack you with \" + this.attacks[attackType] + \" and damage you with \" + damage + \" points.\";\r\n    }\r\n}\r\ndisplay.text(monster.name);\r\ndisplay.text(monster.life);\r\ndisplay.text(monster);\r\nmonster.life = 18;\r\ndisplay.text(monster.life);\r\ndisplay.text(monster.attacks[1]);\r\ndisplay.text(monster.attack());"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Blanka"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "100"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "[object Object]"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "18"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Rolling Attack"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Blanka attack you with Vertical Rolling and damage you with 95 points."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function getRandonNumber(min, max){\r\n    return Math.floor(min + Math.random() * (max-min));\r\n}\r\n\r\nlet monster = {\r\n    name: \"Blanka\",\r\n    life: 100,\r\n    isDisoriented: false,\r\n    attacks: [\"Electric Thunder\",\"Rolling Attack\",\"Backstep Rolling\",\"Vertical Rolling\"],\r\n    attack: function() {\r\n        return this.name + \" attack you with \" + this.attacks[getRandonNumber(0,4)] + \" and damage you with \" + getRandonNumber(0,50) + \" points.\";\r\n    }\r\n}\r\ndisplay.text(monster.attack());"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Blanka attack you with Electric Thunder and damage you with 29 points."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// destructuring is getting the values from the object within a single line\r\nlet monster = {\r\n    monsterName: \"Blanka\",\r\n    life: 100,\r\n    isDisoriented: false,\r\n    attacks: [\"Electric Thunder\",\"Rolling Attack\",\"Backstep Rolling\",\"Vertical Rolling\"],\r\n    attack: function() {\r\n        return this.name + \" attack you with \" + this.attacks[getRandonNumber(0,4)] + \" and damage you with \" + getRandonNumber(0,50) + \" points.\";\r\n    }\r\n}\r\nlet {monsterName, life} = monster;\r\ndisplay.text(monsterName);\r\ndisplay.text(life);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Blanka"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "100"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Let's create our first game!"
+            ],
+            "outputs": []
+        }
+    ]
+}

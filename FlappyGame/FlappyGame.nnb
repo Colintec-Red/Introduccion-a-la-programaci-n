@@ -1,0 +1,125 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "Let's build the flappy bird game!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/8sBZQO2ZALwAAAAM/flappy-bird-game.gif\" height=\"200\"/>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<img src=\"https://media.tenor.com/8sBZQO2ZALwAAAAM/flappy-bird-game.gif\" height=\"200\"/>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "html",
+            "source": [
+                "<p>We are going to use Kaboom, a framework to build games for the web</p>\r\n<a href=\"https://kaboomjs.com/\">Kaboom</a>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<p>We are going to use Kaboom, a framework to build game for the web</p>\r",
+                                "<a href=\"https://kaboomjs.com/\">Kaboom</a>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- Create a FlappyGame folder\r\n- Inside that folder create another falder called sprites, copy flappy.png file inside it\r\n- In FlappyGame folder, create two files, index.html and flappy.js"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "Here's the code for index.html\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"utf-8\" />\r\n    <title>Flappy Kaboom</title>\r\n  </head>\r\n  <body>\r\n    <script src=\"https://unpkg.com/kaboom@3000.0.1/dist/kaboom.js\"></script>\r\n    <script src=\"./flappy.js\"></script>\r\n  </body>\r\n</html>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Inside flappy.js write this code\r\n\r\n// initialize context\r\nkaboom();\r\n\r\n// load assets\r\nloadSprite(\"flappy\", \"sprites/flappy.png\");\r\n\r\n// add some object to the screen\r\nadd([\r\n    sprite(\"flappy\"),\r\n    pos(80, 40),\r\n])\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// We can see the sprite or image is too big, let's give it a scale\r\n\r\n// initialize context\r\nkaboom();\r\n\r\n// load assets\r\nloadSprite(\"flappy\", \"sprites/flappy.png\");\r\n\r\n// add some object to the screen\r\nadd([\r\n    sprite(\"flappy\"),\r\n    pos(80, 40),\r\n    scale(0.15)\r\n])"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Let's give a light blue background and gravity\r\n\r\nconst GRAVITY = 900;\r\n\r\n// initialize context, we set the background of a light blue color (rgb)\r\nkaboom({ background: [ 173, 216, 230]});\r\n\r\n// define gravity (with higher number, higher gravity)\r\nsetGravity(GRAVITY);\r\n\r\n// load assets\r\nloadSprite(\"flappy\", \"sprites/flappy.png\");\r\n\r\n// we provide an area to the object (area()) and that is affected by gravity (body())\r\nadd([\r\n    sprite(\"flappy\"),\r\n    pos(80, 40),\r\n    scale(0.15),\r\n    area(),\r\n    body()\r\n])"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Let's give the ability to jump\r\n\r\nconst GRAVITY = 900;\r\n\r\n// initialize context, we set the background of a light blue color (rgb)\r\nkaboom({ background: [ 173, 216, 230]});\r\n\r\n// define gravity (with higher number, higher gravity)\r\nsetGravity(GRAVITY);\r\n\r\n// load assets\r\nloadSprite(\"flappy\", \"sprites/flappy.png\");\r\n\r\n// we provide an area to the object (area()) and that is affected by gravity (body())\r\nconst player = add([\r\n    sprite(\"flappy\"),\r\n    pos(80, 40),\r\n    scale(0.15),\r\n    area(),\r\n    body()\r\n])\r\n\r\n// .jump() when \"space\" key is pressed\r\nonKeyPress(\"space\", () => {\r\n    player.jump()\r\n})"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Let's create two scenes (or levels)\r\n// first scene called game will be the main game\r\n// second scenn is the game lose screen\r\n// if player reaches the bottom of the screen, kaboom! and go to lose screen\r\n\r\n\r\nconst GRAVITY = 900;\r\n\r\n// initialize context, we set the background of a light blue color (rgb)\r\nkaboom({ background: [ 173, 216, 230]});\r\n\r\n\r\n// load assets\r\nloadSprite(\"flappy\", \"sprites/flappy.png\");\r\n\r\n// define gravity (with higher number, higher gravity)\r\nsetGravity(GRAVITY);\r\n\r\n//create a scene called game\r\nscene(\"game\", () => {\r\n\r\n    // we assign the object \r\n    const player = add([\r\n        sprite(\"flappy\"),\r\n        pos(80, 40),\r\n        scale(0.15),\r\n        area(),\r\n        body()\r\n    ])\r\n\r\n    // .jump() when \"space\" key is pressed\r\n    onKeyPress(\"space\", () => {\r\n        player.jump()\r\n    })\r\n\r\n    // Event onUpdate: it registers an event that runs every frame \r\n    onUpdate(() => {\r\n        // update the score label text every frame with the score value\r\n \r\n        // if the player is below the bottom of the screen (total height -> height())\r\n        if(player.pos.y > height()){\r\n            go(\"lose\");  // go to lose screen and pass the score\r\n            burp(); // make a burp sound\r\n            addKaboom(player.pos); // add kaboom sprite on the current player positon\r\n        }             \r\n    });\r\n\r\n});\r\n\r\n// add another game sceen called scene, we have to pass an score\r\nscene(\"lose\", () => {\r\n\r\n    add([\r\n        // display score\r\n        text(`Finished!`),\r\n        pos(width() / 2, height() / 2 + 80),\r\n        scale(1.5),\r\n        anchor(\"center\"),\r\n    ]);\r\n\r\n    // go back to game when space is pressed or click on screen\r\n    onKeyPress(\"space\", () => go(\"game\"));\r\n    onClick(() => go(\"game\"));\r\n\r\n});\r\n\r\n// initial start of the game\r\ngo(\"game\");"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Let's add two moving colums and assign some speed\r\n\r\nconst GRAVITY = 900;\r\nconst SPEED = 480;\r\n\r\n// initialize context, we set the background of a light blue color (rgb)\r\nkaboom({ background: [ 173, 216, 230]});\r\n\r\n// load assets\r\nloadSprite(\"flappy\", \"sprites/flappy.png\");\r\n\r\n// define gravity (with higher number, higher gravity)\r\nsetGravity(GRAVITY);\r\n\r\n//create a scene called game\r\nscene(\"game\", () => {\r\n\r\n    // we assign the object \r\n    const player = add([\r\n        sprite(\"flappy\"),\r\n        pos(80, 40),\r\n        scale(0.15),\r\n        area(),\r\n        body()\r\n    ])\r\n\r\n    // .jump() when \"space\" key is pressed\r\n    onKeyPress(\"space\", () => {\r\n        player.jump()\r\n    })\r\n\r\n    // Event onUpdate: it registers an event that runs every frame \r\n    onUpdate(() => {\r\n        // update the score label text every frame with the score value\r\n \r\n        // if the player is below the bottom of the screen (total height -> height())\r\n        if(player.pos.y > height()){\r\n            go(\"lose\");  // go to lose screen and pass the score\r\n            burp(); // make a burp sound\r\n            addKaboom(player.pos); // add kaboom sprite on the current player positon\r\n        }             \r\n    });\r\n\r\n    // add bottom-up bar obj\r\n    add([\r\n        rect(48, 100), // instead of a sprite, we draw a rectangle (width: 48, height: randomHeight)\r\n        area(),\r\n        outline(4), // gives the object and ouline (black color with 4 width)\r\n        pos(width(), height()),\r\n        anchor(\"bot\"), // the anchor point, or the pivot point. Default to \"topleft\". \"bot\" == bottom\r\n        color(255, 180, 255), // color of the vertical bar in rgb\r\n        move(LEFT, SPEED), // provide movement for the object, SPEED is a constant\r\n        { passed: false }, // set a flag for counting the object for scoring\r\n        \"verticalBar\", // we give a name to the object\r\n    ])// We need this type casting for getting the position of the object\r\n\r\n    // add top-down bar obj\r\n    add([\r\n        rect(48, height()-100-200),\r\n        area(),\r\n        outline(4),\r\n        pos(width(), 0),\r\n        anchor(\"top\"),\r\n        color(255, 180, 255),\r\n        move(LEFT, SPEED), \r\n        { passed: true },\r\n        \"verticalBar\",\r\n    ]);\r\n\r\n});\r\n\r\n// add another game sceen called scene, we have to pass an score\r\nscene(\"lose\", () => {\r\n\r\n    add([\r\n        // display score\r\n        text(`Finished!`),\r\n        pos(width() / 2, height() / 2 + 80),\r\n        scale(1.5),\r\n        anchor(\"center\"),\r\n    ]);\r\n\r\n    // go back to game when space is pressed or click on screen\r\n    onKeyPress(\"space\", () => go(\"game\"));\r\n    onClick(() => go(\"game\"));\r\n\r\n});\r\n\r\n// initial start of the game\r\ngo(\"game\");"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Columns only appear once, let's build a system for countinously adding columns\r\n\r\nconst GRAVITY = 900;\r\nconst SPEED = 480;\r\n\r\n// initialize context, we set the background of a light blue color (rgb)\r\nkaboom({ background: [ 173, 216, 230]});\r\n\r\n// load assets\r\nloadSprite(\"flappy\", \"sprites/flappy.png\");\r\n\r\n// define gravity (with higher number, higher gravity)\r\nsetGravity(GRAVITY);\r\n\r\n//create a scene called game\r\nscene(\"game\", () => {\r\n\r\n    // we assign the object \r\n    const player = add([\r\n        sprite(\"flappy\"),\r\n        pos(80, 40),\r\n        scale(0.15),\r\n        area(),\r\n        body()\r\n    ])\r\n\r\n    // .jump() when \"space\" key is pressed\r\n    onKeyPress(\"space\", () => {\r\n        player.jump()\r\n    })\r\n\r\n    // Event onUpdate: it registers an event that runs every frame \r\n    onUpdate(() => {\r\n        // update the score label text every frame with the score value\r\n \r\n        // if the player is below the bottom of the screen (total height -> height())\r\n        if(player.pos.y > height()){\r\n            go(\"lose\");  // go to lose screen and pass the score\r\n            burp(); // make a burp sound\r\n            addKaboom(player.pos); // add kaboom sprite on the current player positon\r\n        }             \r\n    });\r\n\r\n    // this is called recursion, when a function calls itself\r\n    function spawnTree() {\r\n\r\n\r\n        // add bottom-up bar obj\r\n        add([\r\n            rect(48, 100), // instead of a sprite, we draw a rectangle (width: 48, height: randomHeight)\r\n            area(),\r\n            outline(4), // gives the object and ouline (black color with 4 width)\r\n            pos(width(), height()),\r\n            anchor(\"bot\"), // the anchor point, or the pivot point. Default to \"topleft\". \"bot\" == bottom\r\n            color(255, 180, 255), // color of the vertical bar in rgb\r\n            move(LEFT, SPEED), // provide movement for the object, SPEED is a constant\r\n            { passed: false }, // set a flag for counting the object for scoring\r\n            \"verticalBar\", // we give a name to the object\r\n        ])// We need this type casting for getting the position of the object\r\n\r\n        // add top-down bar obj\r\n        add([\r\n            rect(48, height()-100-200),\r\n            area(),\r\n            outline(4),\r\n            pos(width(), 0),\r\n            anchor(\"top\"),\r\n            color(255, 180, 255),\r\n            move(LEFT, SPEED), \r\n            { passed: true },\r\n            \"verticalBar\",\r\n        ]);\r\n   \r\n\r\n        // wait one second to call the function each time. This is recursion!\r\n        wait(1, spawnTree);\r\n\r\n    }\r\n\r\n    // start spawning trees\r\n    spawnTree();\r\n\r\n});\r\n\r\n// add another game sceen called scene, we have to pass an score\r\nscene(\"lose\", () => {\r\n\r\n    add([\r\n        // display score\r\n        text(`Finished!`),\r\n        pos(width() / 2, height() / 2 + 80),\r\n        scale(1.5),\r\n        anchor(\"center\"),\r\n    ]);\r\n\r\n    // go back to game when space is pressed or click on screen\r\n    onKeyPress(\"space\", () => go(\"game\"));\r\n    onClick(() => go(\"game\"));\r\n\r\n});\r\n\r\n// initial start of the game\r\ngo(\"game\");"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Let's change the jumping force, make the columns with random position and if the bird touches a column, kaboom!\r\n\r\nconst GRAVITY = 900;\r\nconst SPEED = 480;\r\nconst JUMP_FORCE = 300;\r\n\r\n// initialize context, we set the background of a light blue color (rgb)\r\nkaboom({ background: [ 173, 216, 230]});\r\n\r\n// load assets\r\nloadSprite(\"flappy\", \"sprites/flappy.png\");\r\n\r\n// define gravity (with higher number, higher gravity)\r\nsetGravity(GRAVITY);\r\n\r\n//create a scene called game\r\nscene(\"game\", () => {\r\n\r\n    // we assign the object \r\n    const player = add([\r\n        sprite(\"flappy\"),\r\n        pos(80, 40),\r\n        scale(0.15),\r\n        area(),\r\n        body()\r\n    ])\r\n\r\n    // .jump() when \"space\" key is pressed\r\n    onKeyPress(\"space\", () => {\r\n        player.jump(JUMP_FORCE)\r\n    })\r\n\r\n    // Event onUpdate: it registers an event that runs every frame \r\n    onUpdate(() => {\r\n        // update the score label text every frame with the score value\r\n \r\n        // if the player is below the bottom of the screen (total height -> height())\r\n        if(player.pos.y > height()){\r\n            go(\"lose\");  // go to lose screen and pass the score\r\n            burp(); // make a burp sound\r\n            addKaboom(player.pos); // add kaboom sprite on the current player positon\r\n        }             \r\n    });\r\n\r\n    // this is called recursion, when a function calls itself\r\n    function spawnTree() {\r\n\r\n        // set a random height from 32 up to the total height of the screen -200\r\n        // 200 will represent the space between the top and bottom bar\r\n        let randHeight = rand(32, height()-200);\r\n\r\n\r\n        // add bottom-up bar obj\r\n        add([\r\n            rect(48, randHeight), // instead of a sprite, we draw a rectangle (width: 48, height: randomHeight)\r\n            area(),\r\n            outline(4), // gives the object and ouline (black color with 4 width)\r\n            pos(width(), height()),\r\n            anchor(\"bot\"), // the anchor point, or the pivot point. Default to \"topleft\". \"bot\" == bottom\r\n            color(255, 180, 255), // color of the vertical bar in rgb\r\n            move(LEFT, SPEED), // provide movement for the object, SPEED is a constant\r\n            { passed: false }, // set a flag for counting the object for scoring\r\n            \"verticalBar\", // we give a name to the object\r\n        ])// We need this type casting for getting the position of the object\r\n\r\n        // add top-down bar obj\r\n        add([\r\n            rect(48, height()-randHeight-200),\r\n            area(),\r\n            outline(4),\r\n            pos(width(), 0),\r\n            anchor(\"top\"),\r\n            color(255, 180, 255),\r\n            move(LEFT, SPEED), \r\n            { passed: true },\r\n            \"verticalBar\",\r\n        ]);\r\n   \r\n\r\n        // wait one second to call the function each time. This is recursion!\r\n        wait(1, spawnTree);\r\n\r\n    }\r\n\r\n    // start spawning trees\r\n    spawnTree();\r\n\r\n    // Another event associated with the player (onCollide) \r\n    // lose if player collides with any game obj with tag \"tree\"\r\n    player.onCollide(\"verticalBar\", () => {\r\n        go(\"lose\");\r\n        burp();\r\n        addKaboom(player.pos);\r\n    });\r\n\r\n});\r\n\r\n// add another game sceen called scene, we have to pass an score\r\nscene(\"lose\", () => {\r\n\r\n    add([\r\n        // display score\r\n        text(`Finished!`),\r\n        pos(width() / 2, height() / 2 + 80),\r\n        scale(1.5),\r\n        anchor(\"center\"),\r\n    ]);\r\n\r\n    // go back to game when space is pressed or click on screen\r\n    onKeyPress(\"space\", () => go(\"game\"));\r\n    onClick(() => go(\"game\"));\r\n\r\n});\r\n\r\n// initial start of the game\r\ngo(\"game\");"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Let's change the distance between the columns and a score system\r\n\r\nconst JUMP_FORCE = 300;\r\nconst SPEED = 480;\r\nconst GRAVITY = 900;\r\n\r\n// initialize context, we set the background of a light blue color (rgb)\r\nkaboom({ background: [ 173, 216, 230]});\r\n\r\n// load assets\r\nloadSprite(\"flappy\", \"sprites/flappy.png\");\r\n\r\n//create a scene called game\r\nscene(\"game\", () => {\r\n\r\n    // define gravity\r\n    setGravity(GRAVITY);\r\n\r\n    // keep track of score\r\n    let score = 0;\r\n\r\n    // add a score label object to screen\r\n    const scoreLabel = add([\r\n        text(score.toString()),\r\n        pos(24, 24),\r\n    ]);\r\n\r\n    // add a game object to screen\r\n    const player = add([\r\n        // list of components\r\n        sprite(\"flappy\"), // assign a sprite\r\n        scale(0.15), // scale depending on the image dimensions\r\n        pos(80, 40), // initial position on the screen\r\n        area(), // generates collider area from shape and enables collision detection.\r\n        body(), // is affected by gravity\r\n    ]);\r\n\r\n    // jump when user press space or on click\r\n    function jump() {\r\n        player.jump(JUMP_FORCE); // JUMP_FORCE is a constant to measure the height of the jump\r\n    }\r\n    onKeyPress(\"space\", jump);\r\n    onClick(jump);\r\n\r\n    // this is called recursion, when a function calls itself\r\n    function spawnTree() {\r\n\r\n        // set a random height from 32 up to the total height of the screen -200\r\n        // 200 will represent the space between the top and bottom bar\r\n        let randHeight = rand(32, height()-200);\r\n\r\n        // add bottom-up bar obj\r\n        add([\r\n            rect(48, randHeight), // instead of a sprite, we draw a rectangle (width: 48, height: randomHeight)\r\n            area(),\r\n            outline(4), // gives the object and ouline (black color with 4 width)\r\n            pos(width(), height()),\r\n            anchor(\"bot\"), // the anchor point, or the pivot point. Default to \"topleft\". \"bot\" == bottom\r\n            color(255, 180, 255), // color of the vertical bar in rgb\r\n            move(LEFT, SPEED), // provide movement for the object, SPEED is a constant\r\n            { passed: false }, // set a flag for counting the object for scoring\r\n            \"verticalBar\", // we give a name to the object\r\n        ])// We need this type casting for getting the position of the object\r\n\r\n        // add top-down bar obj\r\n        add([\r\n            rect(48, height()-randHeight-200),\r\n            area(),\r\n            outline(4),\r\n            pos(width(), 0),\r\n            anchor(\"top\"),\r\n            color(255, 180, 255),\r\n            move(LEFT, SPEED), \r\n            { passed: true },\r\n            \"verticalBar\",\r\n        ]);\r\n\r\n        // increment score if the x position of the vertical bar is lower (to the left) of the player position\r\n        // the flag isCounted is to make sure the score is only incremented once\r\n        onUpdate(\"verticalBar\", (bar) => {\r\n            if(bar.pos.x <= player.pos.x && !bar.passed){\r\n                score++;\r\n                bar.passed = true;\r\n            }\r\n        });\r\n    \r\n\r\n        // wait a random amount of time to spawn next tree (this is recursion)\r\n        wait(rand(0.8, 1.5), spawnTree);\r\n\r\n    }\r\n\r\n    // start spawning trees\r\n    spawnTree();\r\n\r\n\r\n    // Event onUpdate: it registers an event that runs every frame \r\n    onUpdate(() => {\r\n        // update the score label text every frame with the score value\r\n        scoreLabel.text = `Score: ${score}`;   \r\n        // if the player is below the bottom of the screen (total height -> height())\r\n        if(player.pos.y > height()){\r\n            go(\"lose\", score);  // go to lose screen and pass the score\r\n            burp(); // make a burp sound\r\n            addKaboom(player.pos); // add kaboom sprite on the current player positon\r\n        }             \r\n    });\r\n\r\n    // Another event associated with the player (onCollide) \r\n    // lose if player collides with any game obj with tag \"tree\"\r\n    player.onCollide(\"verticalBar\", () => {\r\n        go(\"lose\", score);\r\n        burp();\r\n        addKaboom(player.pos);\r\n    });\r\n\r\n});\r\n\r\n// add another game sceen called scene, we have to pass an score\r\nscene(\"lose\", (score) => {\r\n\r\n    add([\r\n        // display score\r\n        text(`Total score: ${score}`),\r\n        pos(width() / 2, height() / 2 + 80),\r\n        scale(1.5),\r\n        anchor(\"center\"),\r\n    ]);\r\n\r\n    // go back to game when space is pressed or click on screen\r\n    onKeyPress(\"space\", () => go(\"game\"));\r\n    onClick(() => go(\"game\"));\r\n\r\n});\r\n\r\n// initial start of the game\r\ngo(\"game\");"
+            ],
+            "outputs": []
+        }
+    ]
+}

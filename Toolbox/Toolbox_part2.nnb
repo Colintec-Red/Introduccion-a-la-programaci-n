@@ -1,0 +1,340 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "Primitive Data Types (Types of value it can be stored)\r\n1. Number \r\n2. String\r\n3. Boolean"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const {display} = require('node-kernel');"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Number - Primitive type\r\n7;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Operations with of Numbers\r\n// Addition\r\ndisplay.text(7+3);\r\n// Substraction\r\ndisplay.text(7-3);\r\n// Multiplication\r\ndisplay.text(7*2);\r\n// Division\r\ndisplay.text(7/2);\r\n// Module (represent the remainder of the division)\r\ndisplay.text(7%2);\r\ndisplay.text(6%2);\r\n// We mostly use module to check if a number is odd or even\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// String - Primitive type\r\n// We use \"\" or '' to respresent a string like \"Hello, world\"\r\n\"Hola\";"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "display.text(\"Hola\" + 'mundo' + \"!\");\r\ndisplay.text(\"Hola \" + \"mundo!\");"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "display.text('This isn't a correct text');"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "display.text(\"This isn't a correct text');"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "display.text(\"This isn't correct text\");\r\ndisplay.text('This isn\\'t correct text');"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "display.text(10 + \"30\");\r\ndisplay.text(10 - \"3\");"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Boolean and comparisons - Primitive type\r\n// true\r\n// false"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "display.text(5 > 3);\r\ndisplay.text(5 >= 5);\r\ndisplay.text(3 >= 5);\r\ndisplay.text(2 < 5);\r\ndisplay.text(5 <= 5);\r\ndisplay.text(7 <= 5);\r\ndisplay.text(2 === 2);\r\ndisplay.text(3 !== 4);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISES!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\r\nGuess what answers you would get if you ran this. Once you have an answer  to the questions then check them by running them."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//Evaluate the below:\r\n//display.text(5 + \"34\");\r\n//display.text(5 - \"4\");\r\n//display.text(10 % 5);\r\n//display.text(5 % 10),\r\n//display.text(\"Java\" + \"Script\");\r\n//display.text(\" \" + \" \");\r\n//display.text(\" \" + 0);\r\n//display.text(true + true);\r\n//display.text(true + false);\r\n//display.text(false + true);\r\n//display.text(false - true);\r\n//display.text(3 - 4);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//Evaluate the below comparisons:\r\n//display.text(5 >= 1);\r\n//display.text(0 === 1);\r\n//display.text(4 <= 1);\r\n//display.text(1 != 1);\r\n//display.text(\"A\" > \"B\");\r\n//display.text(\"B\" < \"C\");\r\n//display.text(\"a\" > \"A\");\r\n//display.text(\"b\" < \"A\"),\r\n//display.text(true === false);\r\n//display.text(true != true);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//Make the string: \"Hi There! It's \"sunny\" out\" by using the + sign:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "VARIABLES: The way we can store values in the program\r\nlet - Scoped\r\nconst - Constant\r\nImportant! Variable names have to start with a letter or _ or $"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/XcSlOoBn1zMAAAAd/bh187-bruce-almighty.gif\" height=\"200\"/>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let age = 15;\r\ndisplay.text(age);\r\nlet surname = \"Doe\";\r\ndisplay.text(surname);\r\nlet street = \"4th Avenue\";\r\ndisplay.text(street);\r\nlet camelCaseText = \"Variable using camel case naming convention\";\r\ndisplay.text(camelCaseText);\r\nlet snake_case = \"Variable using snake case naming convention\";\r\ndisplay.text(snake_case);\r\nlet _isRaining = true;\r\ndisplay.text(_isRaining);\r\nlet $taxValue = 32.5;\r\ndisplay.text($taxValue);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let age = 20;\r\nlet isAdult = age >= 18;\r\ndisplay.text(isAdult);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let apples = 20;\r\nlet oranges = 10;\r\nlet fruitsTotal = apples + oranges;\r\ndisplay.text(\"Total number of fruits: \" + fruitsTotal);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// You can use backtick character ` for template literals, but with an spanish keyboard is annoying\r\nlet apples = 20;\r\nlet oranges = 10;\r\nlet fruitsTotal = apples + oranges;\r\ndisplay.text(`Total number of fruits: ${fruitsTotal}`);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let apples = 20;\r\napples++;\r\ndisplay.text(apples);\r\napples--;\r\ndisplay.text(apples);\r\napples--;\r\ndisplay.text(apples);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// const doesn't allow to change the value later, it make it really safe!\r\nconst new_age = 14;\r\nnew_age = 2;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISES!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//Add variable \"firstName\" and \"lastName\" so that they equal your name. Create a variable that holds the answer of \"firstName\" + \" \" + \"lastName\""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Evaluate this question. What is a + b?\r\nlet a = 34;\r\nlet b = 21;\r\na = 2;\r\ndisplay.text(a + b); // what is the answer here?\r\na--;\r\ndisplay.text(a + b); // what is the answer here?\r\n\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "FUNCTIONS: How we launch SPECIFIC actions in a program. IMPORTANT! Separations of concerns"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif\" height=200/>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// This is called function declaration\r\n\r\nfunction addTwoNumbers() {\r\n    let a = 1;\r\n    let b = 2;\r\n    display.text(a + b);\r\n}\r\naddTwoNumbers()"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// This is called function expression (function doesn't has a name, it's called annonymous)\r\nlet sayHello = function () {\r\n    display.text(\"Hello!\")\r\n}\r\nsayHello();"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Function with parameters\r\nfunction saySomething(something){\r\n    display.text(something);\r\n}\r\nsaySomething(\"How are you?\")"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Function with returned value\r\nfunction multiplyTwoNumbers(num1, num2) {\r\n    return num1 * num2;\r\n}\r\nlet result = multiplyTwoNumbers(3,5);\r\ndisplay.text(result);\r\nlet firstNumber = 5;\r\nlet secondNumber = 6;\r\n// In here, firstNumber and secondNumber are called arguments (not very important)\r\ndisplay.text(multiplyTwoNumbers(firstNumber,secondNumber));"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// function with default arguments\r\nfunction multiplyTwoNumbers(num1 = 1, num2 = 1) {\r\n    return num1 * num2;\r\n}\r\ndisplay.text(multiplyTwoNumbers());\r\ndisplay.text(multiplyTwoNumbers(3,5));"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISE!!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Write a function to check if someone is an adult"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Let's ask ChatGPT for that exact exercise!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/bkx7ADV8vm0AAAAd/request-to-chat-gpt-request.gif\" height=200/>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Let's create our first app!\r\nWe are going to ask the user for a password and check wether it's correct or not\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 1: Create a folder name FirstApp and create file named first_app.js"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 2: Create an input system from the user with the following code: "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let readline = require('readline');\r\n\r\nlet rl = readline.createInterface({\r\n  input: process.stdin,\r\n  output: process.stdout\r\n});\r\n\r\nrl.question(\"Enter password: \", function(answer) {\r\n\r\n  rl.close();\r\n});"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 3: Create a function to check if a password is correct, the function mas contain two parameters inputPassword and correctPassword, it has to return a boolean"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 4: Inside the funcion in rl.question, set a constant called correctPassword and asign any value you want"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 5: Call the function to check if password is correct "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 6: Output the result in the following way: console.log(\"Is password correct? \" + result);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Final step: run in the terminal (make sure you are in the correct folder) -> Node first_app.js"
+            ],
+            "outputs": []
+        }
+    ]
+}

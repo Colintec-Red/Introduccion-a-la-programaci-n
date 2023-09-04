@@ -1,0 +1,81 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "Let's build a version of Street Fighter! (using the console for user input)"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<div style=\"display: flex;\">\r\n    <img src=\"https://media.tenor.com/hQA6jk2FxwQAAAAC/ryu-hadouken.gif\" height=\"200\"/>\r\n    <img src=\"https://media.tenor.com/AAiTctFny08AAAAM/blanka-street-fighter.gif\" style=\"transform: scaleX(-1);\" height=\"200\"/>\r\n</div>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<div style=\"display: flex;\">\r",
+                                "    <img src=\"https://media.tenor.com/hQA6jk2FxwQAAAAC/ryu-hadouken.gif\" height=\"200\"/>\r",
+                                "    <img src=\"https://media.tenor.com/AAiTctFny08AAAAM/blanka-street-fighter.gif\" style=\"transform: scaleX(-1);\" height=\"200\"/>\r",
+                                "</div>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Let's plan what we need:\r\n1. It will be a fight between Ryu (user) and Blanka, they will start with a life of 100\r\n2. We need the user to choose an attack between three possible atacks\r\n3. Once the user chooses the attack, the machine will choose the opponent attack\r\n4. The damage of each attack will be calculated using a random number between 0 and 50\r\n5. The one with the highest damage, wins the duel and decreases the life of its opponent\r\n6. If any user has a life equal or lower than 0 lose the game\r\nCreate a folder called FirstGame\r\nCreate a file called first_game.ts\r\nRemember, to execute the game, go to the FirstGame folder and run -> npx ts-node first_game.ts"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// 2.We need the user to choose an attack between three possible atacks\r\n// Add the following code to ask for user input and wait for a response\r\n\r\nlet readline = require('node:readline/promises');\r\nlet input = process.stdin;\r\nlet output = process.stdout;\r\n\r\n// async functions are out of the scope of this program, it is reserved for advance use\r\nasync function startGame(){\r\n    const rl = readline.createInterface({ input, output });\r\n    // We wait for the answer of the user\r\n    let answer = await rl.question(\"Please choose your attack (Shoryuken, Hadoken or Tatsumaki): \");\r\n    console.log(`You choose: ${answer}`);\r\n}\r\nstartGame();"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// We have to make sure that the answer matches one of the three options\r\nlet readline = require('node:readline/promises');\r\nlet input = process.stdin;\r\nlet output = process.stdout;\r\n\r\n// async functions are out of the scope of this program, it is reserved for advance use\r\nasync function startGame(){\r\n    const rl = readline.createInterface({ input, output });\r\n    // We wait for the answer of the user\r\n    let answer = await rl.question(\"Please choose your attack (Shoryuken, Hadoken or Tatsumaki): \");\r\n    if(answer.toLocaleLowerCase() !== \"shoryuken\" && answer.toLocaleLowerCase() !== \"hadoken\" && answer.toLocaleLowerCase() !== \"tatsumaki\"){\r\n        console.log(\"Sorry, \" + answer + \" is not one of the attacks, try again.\")\r\n    }\r\n    else{\r\n        console.log(`You choose: ${answer}`);\r\n    }\r\n}\r\nstartGame();\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Let's create the two players\r\n// We have to make sure that the answer matches one of the three options\r\nlet readline = require('node:readline/promises');\r\nlet input = process.stdin;\r\nlet output = process.stdout;\r\n\r\n// async functions are out of the scope of this program, it is reserved for advance use\r\nasync function startGame(){\r\n    const rl = readline.createInterface({ input, output });\r\n    \r\n    const player = {\r\n        name: \"Ryu\",\r\n        life: 100,\r\n        attacks: [\"Shoryuken\", \"Hadoken\", \"Tatsumaki\"]\r\n    };\r\n    \r\n    const computer = {\r\n        name: \"Blanka\",\r\n        life: 100,\r\n        attacks: [\"Electric Thunder\",\"Rolling Attack\",\"Backstep Rolling\"]\r\n    };\r\n\r\n    // We wait for the answer of the user\r\n    let answer = await rl.question(\"Please choose your attack (Shoryuken, Hadoken or Tatsumaki): \");\r\n    if(answer.toLocaleLowerCase() !== \"shoryuken\" && answer.toLocaleLowerCase() !== \"hadoken\" && answer.toLocaleLowerCase() !== \"tatsumaki\"){\r\n        console.log(\"Sorry, \" + answer + \" is not one of the attacks, try again.\")\r\n    }\r\n    else{\r\n        console.log(`You choose: ${answer}`);\r\n    }\r\n}\r\nstartGame();"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// 3. Once the user chooses the attack, the machine will choose the opponent attack\r\n// 4. The damage of each attack will be calculated using a random number between 0 and 50\r\n\r\nlet readline = require('node:readline/promises');\r\nlet input = process.stdin;\r\nlet output = process.stdout;\r\n\r\n// async functions are out of the scope of this program, it is reserved for advance use\r\nasync function startGame(){\r\n    const rl = readline.createInterface({ input, output });\r\n    \r\n    const player = {\r\n        name: \"Ryu\",\r\n        life: 100,\r\n        attacks: [\"Shoryuken\", \"Hadoken\", \"Tatsumaki\"]\r\n    };\r\n    \r\n    const computer = {\r\n        name: \"Blanka\",\r\n        life: 100,\r\n        attacks: [\"Electric Thunder\",\"Rolling Attack\",\"Backstep Rolling\"]\r\n    };\r\n\r\n    // We wait for the answer of the user\r\n    let answer = await rl.question(\"Please choose your attack (Shoryuken, Hadoken or Tatsumaki): \");\r\n    if(answer.toLocaleLowerCase() !== \"shoryuken\" && answer.toLocaleLowerCase() !== \"hadoken\" && answer.toLocaleLowerCase() !== \"tatsumaki\"){\r\n        console.log(\"Sorry, \" + answer + \" is not one of the attacks, try again.\")\r\n    }\r\n    else{\r\n        let playerAttack = getRandonNumber(0,50);\r\n        let computerAttack = getRandonNumber(0,50);\r\n        console.log(player.name + \" attacked with \" + answer + \" with \" + playerAttack + \" points\");\r\n        console.log(computer.name + \" attacked with \" + computer.attacks[getRandonNumber(0,3)] + \" with \" + computerAttack + \" points\");\r\n    }\r\n}\r\n\r\nfunction getRandonNumber(min, max) {\r\n    // ex. min 5 and max 20 -> 5 + 0.95 * (20-5) = 19\r\n    // ex. min 5 and max 20 -> 5 + 0.05 * (20-5) = 5\r\n    return Math.floor(min + Math.random() * (max-min));\r\n}\r\n\r\nstartGame();\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//5. The one with the highest damage, wins the duel and decreases the life of its opponent\r\nlet readline = require('node:readline/promises');\r\nlet input = process.stdin;\r\nlet output = process.stdout;\r\n\r\n// async functions are out of the scope of this program, it is reserved for advance use\r\nasync function startGame(){\r\n    const rl = readline.createInterface({ input, output });\r\n    \r\n    const player = {\r\n        name: \"Ryu\",\r\n        life: 100,\r\n        attacks: [\"Shoryuken\", \"Hadoken\", \"Tatsumaki\"]\r\n    };\r\n    \r\n    const computer = {\r\n        name: \"Blanka\",\r\n        life: 100,\r\n        attacks: [\"Electric Thunder\",\"Rolling Attack\",\"Backstep Rolling\"]\r\n    };\r\n\r\n    // We wait for the answer of the user\r\n    let answer = await rl.question(\"Please choose your attack (Shoryuken, Hadoken or Tatsumaki): \");\r\n    if(answer.toLocaleLowerCase() !== \"shoryuken\" && answer.toLocaleLowerCase() !== \"hadoken\" && answer.toLocaleLowerCase() !== \"tatsumaki\"){\r\n        console.log(\"Sorry, \" + answer + \" is not one of the attacks, try again.\")\r\n    }\r\n    else{\r\n        let playerAttack = getRandonNumber(0,50);\r\n        let computerAttack = getRandonNumber(0,50);\r\n        console.log(player.name + \" attacked with \" + answer + \" with \" + playerAttack + \" points\");\r\n        console.log(computer.name + \" attacked with \" + computer.attacks[getRandonNumber(0,3)] + \" with \" + computerAttack + \" points\");\r\n        if(playerAttack > computerAttack){\r\n            console.log(player.name + \" won this turn!\")\r\n            computer.life -= playerAttack;\r\n        }\r\n        else if(computerAttack > playerAttack){\r\n            console.log(computer.name + \" won this turn!\")\r\n            player.life -= computerAttack;\r\n        }\r\n        else{\r\n            console.log(\"It's a tie!\")\r\n        }\r\n        console.log(player.name + \" has \" + player.life + \" point of life and \" + computer.name + \" has \" + computer.life + \" points of life\");\r\n        console.log(\"--- Next turn ---\");\r\n    }\r\n    \r\n}\r\n\r\nfunction getRandonNumber(min, max) {\r\n    // ex. min 5 and max 20 -> 5 + 0.95 * (20-5) = 19\r\n    // ex. min 5 and max 20 -> 5 + 0.05 * (20-5) = 5\r\n    return Math.floor(min + Math.random() * (max-min));\r\n}\r\n\r\nstartGame();"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//6. If any user has a life equal or lower than 0 lose the game\r\n\r\nlet readline = require('node:readline/promises');\r\nlet input = process.stdin;\r\nlet output = process.stdout;\r\n\r\n// async functions are out of the scope of this program, it is reserved for advance use\r\nasync function startGame(){\r\n\r\n    const rl = readline.createInterface({ input, output });\r\n    \r\n    const player = {\r\n        name: \"Ryu\",\r\n        life: 100,\r\n        attacks: [\"Shoryuken\", \"Hadoken\", \"Tatsumaki\"]\r\n    };\r\n    \r\n    const computer = {\r\n        name: \"Blanka\",\r\n        life: 100,\r\n        attacks: [\"Electric Thunder\",\"Rolling Attack\",\"Backstep Rolling\"]\r\n    };\r\n\r\n    // This while loop makes the game go on until one of the player's life is 0 or lower\r\n    while(player.life > 0 && computer.life > 0){\r\n\r\n        // We wait for the answer of the user\r\n        let answer = await rl.question(\"Please choose your attack (Shoryuken, Hadoken or Tatsumaki): \");\r\n        if(answer.toLocaleLowerCase() !== \"shoryuken\" && answer.toLocaleLowerCase() !== \"hadoken\" && answer.toLocaleLowerCase() !== \"tatsumaki\"){\r\n            console.log(\"Sorry, \" + answer + \" is not one of the attacks, try again.\")\r\n        }\r\n        else{\r\n            let playerAttack = getRandonNumber(0,50);\r\n            let computerAttack = getRandonNumber(0,50);\r\n            console.log(player.name + \" attacked with \" + answer + \" with \" + playerAttack + \" points\");\r\n            console.log(computer.name + \" attacked with \" + computer.attacks[getRandonNumber(0,3)] + \" with \" + computerAttack + \" points\");\r\n            if(playerAttack > computerAttack){\r\n                console.log(player.name + \" won this turn!\")\r\n                computer.life -= playerAttack;\r\n            }\r\n            else if(computerAttack > playerAttack){\r\n                console.log(computer.name + \" won this turn!\")\r\n                player.life -= computerAttack;\r\n            }\r\n            else{\r\n                console.log(\"It's a tie!\")\r\n            }\r\n            console.log(player.name + \" has \" + player.life + \" point of life and \" + computer.name + \" has \" + computer.life + \" points of life\");\r\n            console.log(\"--- Next turn ---\");\r\n        }\r\n    }\r\n    // We have to close the readline for memory purposes\r\n    rl.close();\r\n    if(player.life > computer.life){\r\n        console.log(player.name.toUpperCase() + \" WON THE GAME!\")\r\n    }\r\n    else{\r\n        console.log(computer.name.toUpperCase() + \" WON THE GAME!\") \r\n    }\r\n}\r\n\r\nfunction getRandonNumber(min, max) {\r\n    // ex. min 5 and max 20 -> 5 + 0.95 * (20-5) = 19\r\n    // ex. min 5 and max 20 -> 5 + 0.05 * (20-5) = 5\r\n    return Math.floor(min + Math.random() * (max-min));\r\n}\r\n\r\n\r\nstartGame();"
+            ],
+            "outputs": []
+        }
+    ]
+}

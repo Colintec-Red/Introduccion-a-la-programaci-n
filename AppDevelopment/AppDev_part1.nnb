@@ -1,0 +1,154 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "APP DEVELOPMENT"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "In this section we'll see how we can build apps using Typescript for web development, this section includes: App structure, workflow, compilation and debugging."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "We'll create a todo app"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 1: Create a new folder called TodoApp"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 2: Install Live server extension. Click Extensions on the left toolbar and serch for Live Server by Ritwick Dey, click install."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 3: Inside the folder, create index.html file and copy the following code:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title>My Todo App</title>\r\n</head>\r\n<body>\r\n    <div style=\"display: flex; flex-direction: column; justify-content: center; align-items: center;\">\r\n        <h1 style=\"text-align: center;\">My Todo App</h1>\r\n        <div style=\"display: flex; height: 40px; margin: 20px;\">\r\n            <input id=\"inputNewTask\" type=\"text\" placeholder=\"Insert your new task\" style=\"width: 50vw;\"/>\r\n            <button id=\"addButton\">Add</button>\r\n        </div>\r\n        <table id=\"todosTable\">\r\n            <tr >\r\n              <th style=\"min-width: 20vw;\">Task</th>\r\n              <th>Completed?</th>\r\n              <th></th>\r\n            </tr>\r\n          </table>\r\n    </div>\r\n\r\n  <script src='todoApp.js'></script>\r\n</body>\r\n</html>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<html lang=\"en\">\r",
+                                "<head>\r",
+                                "  <meta charset=\"UTF-8\">\r",
+                                "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r",
+                                "  <title>My Todo App</title>\r",
+                                "</head>\r",
+                                "<body>\r",
+                                "    <h1 style=\"text-align: center;\">My Todo App</h1>\r",
+                                "  <div class=\"wrapper\">\r",
+                                "\r",
+                                "\r",
+                                "    <!-- output list -->\r",
+                                "    <ul class=\"item-list\">\r",
+                                "      \r",
+                                "    </ul>\r",
+                                "  </div>\r",
+                                "\r",
+                                "\r",
+                                "  <script src='todoApp.js'></script>\r",
+                                "</body>\r",
+                                "</html>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 4: Now we can test some code, create a todoApp.js in the src folder and write the following code:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// This is a function to assign the button element with id (#) addButton to the constant addButton\r\nconst addButton = document.querySelector(\"#addButton\");\r\n\r\n// This is a function to assign an event listener of type click to the button\r\naddButton.addEventListener('click', e => {\r\n    console.log(\"You have clicked add bottom!\");\r\n})"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 5: Save the file and in the terminal, in the explorer, select TodoApp folder, right button click in index.html and select \"Open with Live Server\". On the blue bottom bar a message with Port: 5500 should be displayed.\r\nIf no error are found, the server running will be running at http://127.0.0.1:5500/ and the default internet browser should open \r\nOpen the Developer tools on the browser and choose Console.\r\nNow whenever you click Add, a message should appear in the console.\r\nNote: If you click on Port: 5500 you can finish the server"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Step 6: Let's think about what we need\r\na) When we click the add button, we neet to get the information from the input text field written by the user\r\nb) Then we need to insert a new task to the table (by default the task is not completed)\r\nc) Finally, if the user clicks delete task, it has to be eliminated from the table\r\nDelete the content in todoApp.ts\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// a) When we click the add button, we neet to get the information from the input text field written by the user\r\nconst inputNewTask = document.querySelector(\"#inputNewTask\");\r\nconst addButton = document.querySelector(\"#addButton\");\r\n\r\naddButton.addEventListener('click', e => {\r\n    let inputText = inputNewTask.value;\r\n    console.log(inputText);\r\n})\r\n\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// It would be very convenient to store the task in a list\r\nconst inputNewTask = document.querySelector(\"#inputNewTask\");\r\nconst addButton = document.querySelector(\"#addButton\");\r\n\r\nlet todosList = [];\r\n\r\naddButton.addEventListener('click', e => {\r\n    let inputText = inputNewTask.value;\r\n    if(inputText !== \"\"){\r\n        let idNumber = 0;\r\n        if(todosList.length > 0){\r\n            idNumber = todosList[todosList.length-1].id + 1;\r\n        }\r\n        let newTodo = {\r\n            id: idNumber,\r\n            text: inputText,\r\n            isCompleted: false\r\n        }\r\n        todosList.push(newTodo);\r\n    }\r\n    inputNewTask.value = \"\";\r\n    console.log(todosList);\r\n})"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// b) Then we need to insert a new task to the table (by default the task is not completed)\r\nconst inputNewTask = document.querySelector(\"#inputNewTask\");\r\nconst addButton = document.querySelector(\"#addButton\");\r\nconst tableTask = document.querySelector(\"#todosTable\");\r\n\r\nlet todosList = [];\r\n\r\naddButton.addEventListener('click', e => {\r\n    let inputText = inputNewTask.value;\r\n    if(inputText !== \"\"){\r\n        let idNumber = 0;\r\n        if(todosList.length > 0){\r\n            idNumber = todosList[todosList.length-1].id + 1;\r\n        }\r\n        let newTodo = {\r\n            id: idNumber,\r\n            text: inputText,\r\n            isCompleted: false\r\n        }\r\n        addTodo(newTodo);\r\n    }\r\n    inputNewTask.value = \"\";\r\n    console.log(todosList);\r\n})\r\n\r\n// Let's ask ChatGTP what this function do!\r\nfunction addTodo(todo) {\r\n    let newRow = tableTask.insertRow();\r\n    newRow.id = todo.id.toString();\r\n\r\n    // Insert a cell at the end of the row\r\n    let newCell = newRow.insertCell();\r\n\r\n    // Append a text node to the cell\r\n    let newText = document.createTextNode(todo.text);\r\n    newCell.appendChild(newText);\r\n\r\n    // Insert a cell at the end of the row\r\n    newCell = newRow.insertCell();\r\n\r\n    // Add an input node of type checkbox to the cell\r\n    let checkbox = document.createElement('input');\r\n    checkbox.type = \"checkbox\";\r\n    if(todo.isCompleted){\r\n        checkbox.checked = true;\r\n    }\r\n    newCell.appendChild(checkbox);\r\n    newCell = newRow.insertCell();\r\n\r\n    // Add a button to the cell\r\n    let button = document.createElement('button');\r\n    button.innerText = \"Delete\";\r\n    newCell.appendChild(button);\r\n\r\n    todosList.push(todo);\r\n    console.log(todosList);\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// c) Finally, if the user clicks delete task, it has to be eliminated from the table.\r\n// Let's ask ChatGPT how could be do that\r\nconst addButton = document.querySelector(\"#addButton\");\r\nconst inputNewTask = document.querySelector(\"#inputNewTask\");\r\nconst tableTask = document.querySelector(\"#todosTable\");\r\n\r\nlet todosList = [];\r\n\r\n\r\naddButton.addEventListener('click', e => {\r\n    let inputText = inputNewTask.value;\r\n    if(inputText !== \"\"){\r\n        let idNumber = 0;\r\n        if(todosList.length > 0){\r\n            idNumber = todosList[todosList.length-1].id + 1;\r\n        }\r\n        let newTodo = {\r\n            id: idNumber,\r\n            text: inputText,\r\n            isCompleted: false\r\n        }\r\n        addTodo(newTodo);\r\n    }\r\n    inputNewTask.value = \"\";\r\n})\r\n\r\nfunction addTodo(todo) {\r\n    let newRow = tableTask.insertRow();\r\n    newRow.id = todo.id.toString();\r\n\r\n    // Insert a cell at the end of the row\r\n    let newCell = newRow.insertCell();\r\n\r\n    // Append a text node to the cell\r\n    let newText = document.createTextNode(todo.text);\r\n    newCell.appendChild(newText);\r\n\r\n    // Insert a cell at the end of the row\r\n    newCell = newRow.insertCell();\r\n\r\n    // Add an input node of type checkbox to the cell\r\n    let checkbox = document.createElement('input');\r\n    checkbox.type = \"checkbox\";\r\n    if(todo.isCompleted){\r\n        checkbox.checked = true;\r\n    }\r\n    newCell.appendChild(checkbox);\r\n    newCell = newRow.insertCell();\r\n\r\n    // Add a button to the cell\r\n    let deleteButton = document.createElement('button');\r\n    deleteButton.innerText = \"Delete\";\r\n    newCell.appendChild(deleteButton);\r\n\r\n    deleteButton.addEventListener('click', e => {\r\n        let parentRow = deleteButton.parentNode?.parentNode;\r\n        parentRow?.remove();\r\n        todosList = todosList.filter(item => item.id !== todo.id);\r\n        console.log(todosList);\r\n    })\r\n\r\n    todosList.push(todo);\r\n    console.log(todosList);\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Finally, we are going to implement and add-on, to store the information permanently on local storage\r\nconst addButton = document.querySelector(\"#addButton\");\r\nconst inputNewTask = document.querySelector(\"#inputNewTask\");\r\nconst tableTask = document.querySelector(\"#todosTable\");\r\n\r\nlet todosList = [];\r\n\r\n\r\naddButton.addEventListener('click', e => {\r\n    let inputText = inputNewTask.value;\r\n    if(inputText !== \"\"){\r\n        let idNumber = 0;\r\n        if(todosList.length > 0){\r\n            idNumber = todosList[todosList.length-1].id + 1;\r\n        }\r\n        let newTodo = {\r\n            id: idNumber,\r\n            text: inputText,\r\n            isCompleted: false\r\n        }\r\n        addTodo(newTodo);\r\n    }\r\n    inputNewTask.value = \"\";\r\n})\r\n\r\nfunction addTodo(todo) {\r\n    let newRow = tableTask.insertRow();\r\n    newRow.id = todo.id.toString();\r\n\r\n    // Insert a cell at the end of the row\r\n    let newCell = newRow.insertCell();\r\n\r\n    // Append a text node to the cell\r\n    let newText = document.createTextNode(todo.text);\r\n    newCell.appendChild(newText);\r\n\r\n    // Insert a cell at the end of the row\r\n    newCell = newRow.insertCell();\r\n\r\n    // Add an input node of type checkbox to the cell\r\n    let checkbox = document.createElement('input');\r\n    checkbox.type = \"checkbox\";\r\n    if(todo.isCompleted){\r\n        checkbox.checked = true;\r\n    }\r\n    newCell.appendChild(checkbox);\r\n    newCell = newRow.insertCell();\r\n\r\n    // Add a button to the cell\r\n    let deleteButton = document.createElement('button');\r\n    deleteButton.innerText = \"Delete\";\r\n    newCell.appendChild(deleteButton);\r\n\r\n    deleteButton.addEventListener('click', e => {\r\n        let parentRow = deleteButton.parentNode?.parentNode;\r\n        parentRow?.remove();\r\n        todosList = todosList.filter(item => item.id !== todo.id);\r\n        console.log(todosList);\r\n        saveToLocalStorage();\r\n    })\r\n\r\n    todosList.push(todo);\r\n    saveToLocalStorage(); // After we insert into the array, we save it to local storage\r\n    console.log(todosList);\r\n}\r\n\r\n// This code is standard to save information into local storage with json format\r\nfunction saveToLocalStorage(){\r\n    localStorage.setItem(\"myTodos\", JSON.stringify(todosList));\r\n}\r\n\r\n// This code is standard to get information from local storage, the information is a string or null, so we need to convert it to an array with JSON.parse\r\nfunction getFromLocalStorage() {\r\n    let jsonItems = localStorage.getItem(\"myTodos\");\r\n    if(jsonItems !== null) \r\n        return JSON.parse(jsonItems);\r\n    return [];\r\n}\r\n\r\n// When app starts, get todos from local storage and for each one, add it to the table and todo list\r\nfunction initializeApp(){\r\n    let initialTodos = getFromLocalStorage();\r\n    if(initialTodos.length > 0){\r\n        for(let todo of initialTodos){\r\n            addTodo(todo);\r\n        }\r\n    }\r\n}\r\n\r\ninitializeApp();"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// When user checks completed, is not stored, let's implement it\r\nconst addButton = document.querySelector(\"#addButton\");\r\nconst inputNewTask = document.querySelector(\"#inputNewTask\");\r\nconst tableTask = document.querySelector(\"#todosTable\");\r\n\r\nlet todosList = [];\r\n\r\naddButton.addEventListener('click', e => {\r\n    let inputText = inputNewTask.value;\r\n    if(inputText !== \"\"){\r\n        let idNumber = 0;\r\n        if(todosList.length > 0){\r\n            idNumber = todosList[todosList.length-1].id + 1;\r\n        }\r\n        let newTodo = {\r\n            id: idNumber,\r\n            text: inputText,\r\n            isCompleted: false\r\n        }\r\n        addTodo(newTodo);\r\n    }\r\n    inputNewTask.value = \"\";\r\n})\r\n\r\nfunction addTodo(todo) {\r\n    let newRow = tableTask.insertRow();\r\n    newRow.id = todo.id.toString();\r\n\r\n    // Insert a cell at the end of the row\r\n    let newCell = newRow.insertCell();\r\n\r\n    // Append a text node to the cell\r\n    let newText = document.createTextNode(todo.text);\r\n    newCell.appendChild(newText);\r\n\r\n    // Insert a cell at the end of the row\r\n    newCell = newRow.insertCell();\r\n\r\n    // Add an input node of type checkbox to the cell\r\n    let checkbox = document.createElement('input');\r\n    checkbox.type = \"checkbox\";\r\n    if(todo.isCompleted){\r\n        checkbox.checked = true;\r\n    }\r\n    newCell.appendChild(checkbox);\r\n\r\n    // This event listener listens to any change, gets if the check is checked or not, updates de todo list and save changes to local storage\r\n    checkbox.addEventListener('change', e => {\r\n        let isTodoChecked = checkbox.checked;\r\n        todosList.forEach((item, i) => { if (item.id === todo.id) todosList[i].isCompleted = isTodoChecked; });\r\n        saveToLocalStorage();\r\n    })\r\n\r\n\r\n    // Add a button to the cell\r\n    newCell = newRow.insertCell();\r\n    let deleteButton = document.createElement('button');\r\n    deleteButton.innerText = \"Delete\";\r\n    newCell.appendChild(deleteButton);\r\n\r\n    \r\n    deleteButton.addEventListener('click', e => {\r\n        let parentRow = deleteButton.parentNode?.parentNode;\r\n        parentRow?.remove();\r\n        todosList = todosList.filter(item => item.id !== todo.id);\r\n        console.log(todosList);\r\n        saveToLocalStorage();\r\n    })\r\n\r\n    todosList.push(todo);\r\n    saveToLocalStorage(); // After we insert into the array, we save it to local storage\r\n    console.log(todosList);\r\n}\r\n\r\n// This code is standard to save information into local storage with json format\r\nfunction saveToLocalStorage(){\r\n    localStorage.setItem(\"myTodos\", JSON.stringify(todosList));\r\n}\r\n\r\n// This code is standard to get information from local storage, the information is a string or null, so we need to convert it to an array with JSON.parse\r\nfunction getFromLocalStorage() {\r\n    let jsonItems = localStorage.getItem(\"myTodos\");\r\n    if(jsonItems !== null) \r\n        return JSON.parse(jsonItems);\r\n    return [];\r\n}\r\n\r\n// When app starts, get todos from local storage and for each one, add it to the table and todo list\r\nfunction initializeApp(){\r\n    let initialTodos = getFromLocalStorage();\r\n    if(initialTodos.length > 0){\r\n        for(let todo of initialTodos){\r\n            addTodo(todo);\r\n        }\r\n    }\r\n}\r\n\r\ninitializeApp();"
+            ],
+            "outputs": []
+        }
+    ]
+}

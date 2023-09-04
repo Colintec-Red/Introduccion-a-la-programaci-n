@@ -1,0 +1,946 @@
+{
+    "cells": [
+        {
+            "language": "javascript",
+            "source": [
+                "const {display} = require('node-kernel');"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Control flow: if, else, else if"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "We use control flow to change the program behaviour depending upon certain conditions\r\nExample: If person is an adult, you have to pay to get in, else, you don't need to pay."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/vYWiUcZKZuUAAAAM/flow-dance.gif\" height=200/>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<img src=\"https://media.tenor.com/vYWiUcZKZuUAAAAM/flow-dance.gif\" height=200/>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let age = 10;\r\nif (age >= 18){\r\n    display.text(\"Sorry, you have to pay to get in.\");\r\n}\r\nelse{\r\n    display.text(\"Enjoy! You can access for free\");\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Enjoy! You can access for free"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let age = 18;\r\nif (age > 18){\r\n    display.text(\"Sorry, you have to pay to get in.\");\r\n}\r\nelse if(age === 18){\r\n    display.text(\"Congrats! You get gree access and a 10€ coupon!\")\r\n}\r\nelse{\r\n    display.text(\"Enjoy! You can access for free\");\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Congrats! You get gree access and a 10€ coupon!"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Logical operators: && (and), || (or), !(not)"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://www.bestprog.net/wp-content/uploads/2017/10/05_02_02_03_06_table_01_.jpg\"/>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<img src=\"https://www.bestprog.net/wp-content/uploads/2017/10/05_02_02_03_06_table_01_.jpg\"/>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let isUserActive = true;\r\nlet isPasswordCorrect = true;\r\nif(isUserActive && isPasswordCorrect){\r\n    display.text(\"You are logged in\")\r\n}\r\nelse{\r\n    display.text(\"Sorry, you can't log in\") \r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "You are logged in"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let isPregnant = false;\r\nlet isElder = true;\r\nif(isPregnant || isElder){\r\n    display.text(\"You have sit preference\")\r\n}\r\nelse{\r\n    display.text(\"Please give preference to a pregnant or elder person\") \r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "You have sit preference"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let isAuthorized = false;\r\nif(!isAuthorized){\r\n    display.text(\"You shall not pass!\")\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "You shall not pass!"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function isAdult(minimumAge, age) {\r\n    return age >= minimumAge;\r\n}\r\nif(!isAdult(18,13)){\r\n    display.text(\"You can pass for free!\")\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "You can pass for free!"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISE!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Write a function to check if password equals \"myPassword\", promp the user to ask for password, \r\n// check if it matches and if it does, allow access, otherwise don't allow access\r\nlet readline = require('readline');\r\n\r\nlet rl = readline.createInterface({\r\n  input: process.stdin,\r\n  output: process.stdout\r\n});\r\n\r\nrl.question(\"Please provide password\", function(answer) {\r\n\r\n\r\n\r\n  rl.close();\r\n});"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Please provide password",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Data structures: Arrays.\r\nUseful to organise and store data\r\nAttention!!: The first item in the list starts at 0"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/v2WbaEk-RLcAAAAM/jim-carrey-filing.gif\" height=\"200\"/>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<img src=\"https://media.tenor.com/v2WbaEk-RLcAAAAM/jim-carrey-filing.gif\" height=\"200\"/>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let animalList = [\"Dog\", \"Cat\", \"Bird\", \"Tiger\"];\r\ndisplay.text(animalList[0]);\r\ndisplay.text(animalList);\r\nlet numberList = [23,442.2,35,63];\r\ndisplay.text(numberList[2]);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Dog"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Dog,Cat,Bird,Tiger"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "35"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let animalList = [\"Dog\", \"Cat\", \"Bird\", \"Tiger\"];\r\ndisplay.text(animalList.length);\r\nanimalList.push(\"Snake\");\r\ndisplay.text(animalList);\r\ndisplay.text(animalList.length);\r\nanimalList.splice(2, 0, \"Bear\");\r\ndisplay.text(animalList);\r\ndisplay.text(animalList.length);\r\nanimalList.pop();\r\ndisplay.text(animalList);\r\ndisplay.text(animalList.length);\r\nanimalList.splice(1,1);\r\ndisplay.text(animalList);\r\ndisplay.text(animalList.length);\r\nanimalList.shift();\r\ndisplay.text(animalList);\r\ndisplay.text(animalList.length);\r\nlet expandedAnimalList = animalList.concat([\"Jaguar\",\"Elephant\"]);\r\ndisplay.text(expandedAnimalList);\r\ndisplay.text(expandedAnimalList.length);\r\nlet isBirdInList = animalList.includes(\"Bird\");\r\ndisplay.text(isBirdInList);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let animalList = [\"Dog\", \"Cat\", \"Bird\", \"Tiger\"];\r\nanimalList.sort();\r\ndisplay.text(animalList);\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Bird,Cat,Dog,Tiger"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "html",
+            "source": [
+                "<p>More methods for arrays available at:</p>\r\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods\">Developer mozilla - Array: Instance methods</a>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<p>More methods for arrays available at:</p>\r",
+                                "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods\">Developer mozilla - Array: Instance methods</a>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Array of array\r\nlet countriesPerContinent = [[\"Brasil\", \"Mexico\"],[\"France\", \"Spain\"],[\"Japan\",\"India\"],[\"Egipt\", \"Nigeria\"],[\"Austrlia\", \"New Zeland\"]]\r\ndisplay.text(countriesPerContinent.length);\r\ndisplay.text(countriesPerContinent[2]);\r\ndisplay.text(countriesPerContinent[2].length);\r\ndisplay.text(countriesPerContinent[2][1]);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Japan,India"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "2"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "India"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISES!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// using this array,\r\nlet fruits = [\"Banana\", \"Apples\", \"Oranges\", \"Blueberries\"];\r\n// 1. Remove the Banana from the array.\r\n\r\n// 2. Sort the array in order.\r\n\r\n// 3. Put \"Kiwi\" at the end of the array.\r\n\r\n// 4. Remove \"Apples\" from the array"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// using this array,\r\nlet fruitBasket = [\"Banana\", [\"Apples\", [\"Oranges\"], \"Blueberries\"]];\r\n// access \"Oranges\"."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "String operations"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/DXS8hh6cdKoAAAAC/word-vomit-vomit.gif\" height=\"200\"/>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<img src=\"https://media.tenor.com/DXS8hh6cdKoAAAAC/word-vomit-vomit.gif\" height=\"200\"/>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let someText = \"Hello, how are you today?\";\r\ndisplay.text(someText[4]);\r\ndisplay.text(someText.length);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "o"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "25"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let someText = \"Hello, how are you today?\";\r\nlet slicedText = someText.split(\",\");\r\ndisplay.text(slicedText[0]);\r\ndisplay.text(slicedText[1]);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                " how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let someText = \"Hello, how are you today?\";\r\ndisplay.text(someText.slice(2,5));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "llo"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let someText = \"Hello, how are you today?\";\r\ndisplay.text(someText.toLowerCase()); // Attention!: Super important when comparing texts\r\ndisplay.text(someText.toUpperCase());"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "hello, how are you today?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "HELLO, HOW ARE YOU TODAY?"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let someText = \"Hello, how are you today?\";\r\nlet isWordHowInText = someText.includes(\"how\");\r\ndisplay.text(isWordHowInText);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "true"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "html",
+            "source": [
+                "<p>More methods for strings available at:</p>\r\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods\">Developer mozilla - String: Instance methods</a>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<p>More methods for strings available at:</p>\r",
+                                "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods\">Developer mozilla - String: Instance methods</a>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISES!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Ask user for an email and show that you have send a welcome email to a protected email.\r\n// Example user enters jon@gmail.com, the output should show: \"We have send a wecolme email to j...@gmail.com\"\r\nlet readline = require('readline');\r\n\r\nlet rl = readline.createInterface({\r\n  input: process.stdin,\r\n  output: process.stdout\r\n});\r\n\r\nrl.question(\"Please provide email\", function(answer) {\r\n\r\n\r\n\r\n  rl.close();\r\n});"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Math tools"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/5vo_w_jDfwgAAAAM/calculation-math.gif\" heigth=200/>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let numbers = [5,61,14,75];\r\ndisplay.text(Math.max(...numbers));\r\ndisplay.text(Math.min(...numbers));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "75"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "display.text(Math.pow(2,3));\r\ndisplay.text(Math.sqrt(16));\r\nlet pi = Math.PI;\r\ndisplay.text(pi);\r\ndisplay.text(Math.floor(pi));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "8"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "4"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "3.141592653589793"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "3"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Generate random numbers\r\nlet randNum = Math.random(); // From 0 to <1\r\ndisplay.text(randNum);\r\nlet randNumWithMaxValue = Math.random() * 20; // From 0 to <20\r\ndisplay.text(randNumWithMaxValue);\r\nlet randNumWithMinAndMaxValue = 10 + Math.random() * 10; // From 10 to <20\r\ndisplay.text(randNumWithMinAndMaxValue);\r\nlet randNumNoDecimalWithMinAndMaxValue = Math.floor(5 + Math.random() * 5); //From 5 to <10\r\ndisplay.text(randNumNoDecimalWithMinAndMaxValue);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "0.2790134629547929"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "3.3201091737823862"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "19.33517875108079"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "9"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "html",
+            "source": [
+                "<p>More methods for math available at:</p>\r\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#static_methods\">Developer mozilla - Math: Static methods</a>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<p>More methods for math available at:</p>\r",
+                                "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#static_methods\">Developer mozilla - Math: Static methods</a>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISE!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Using chatGPT write a function that generates a random radius from 1 to 100 (no decimal) and calculate the area of the circle"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<h1>You are ready to be challenged!</h1>\r\n<p>Visit the next page to test your Javascript skills</p>\r\n<a href=\"https://jscodebox.com/\">JSCodebox Javascript challenges</a>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<h1>You are ready to be challenged!</h1>\r",
+                                "<p>Visit the next page to test your Javascript skills</p>\r",
+                                "<a href=\"https://jscodebox.com/\">JSCodebox Javascript challenges</a>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

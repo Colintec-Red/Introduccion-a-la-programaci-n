@@ -1,0 +1,450 @@
+{
+    "cells": [
+        {
+            "language": "typescript",
+            "source": [
+                "const {display} = require('node-kernel');"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Control flow: ternary operator, switch"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Terniary operator is convenient to save lines of code, but it has to be really neat\r\nlet isAccessValid = true;\r\nlet message = isAccessValid ? \"You shall pass!\" : \"You shall not pass!\";\r\ndisplay.text(message);\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "You shall pass!"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Switch, useful when there are many else if needed\r\nfunction getDaySentence(day){\r\n    let message;\r\n    switch (day.toLowerCase()){\r\n        case \"monday\":\r\n            message = \"Worst day of the week\";\r\n            break;\r\n        case \"tuesday\":\r\n            message = \"It's a productive day\";\r\n            break;\r\n        case \"wednesday\":\r\n            message = \"On top of productivity!\";\r\n            break;\r\n        case \"thursday\":\r\n            message = \"Thinking on the weekend\";\r\n            break;\r\n        case \"friday\":\r\n            message = \"My mind is not here anymore\";\r\n            break;\r\n        case \"saturday\":\r\n            message = \"Best day of the week!\";\r\n            break;\r\n        case \"sunday\":\r\n            message = \"Morning is paradise, evening is depression!\";\r\n            break;\r\n        default:\r\n            message = day + \" is not a day of the week!\";\r\n            break;\r\n    }\r\n    return message;\r\n}\r\ndisplay.text(getDaySentence(\"sunday\"));\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Morning is paradise, evening is depression!"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISE!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// change this function into a ternary and assign it to variable called experiencePoints\r\nlet winner = 10 > 5;\r\nfunction experiencePoints() {\r\n    if (winner) {\r\n        return 10;\r\n    } else {\r\n        return 1;\r\n    }\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Arrow functions: A \"cleaner\" way of writing functions"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// useful for simple tasks\r\nfunction getRandonNumber(min, max) {\r\n    return Math.floor(min + Math.random() * (max-min));\r\n}\r\n// we can \"simplify it\" using \r\nlet getRandomNumber = (min, max) => Math.floor(min + Math.random() * (max-min));\r\nlet randomNumber = getRandomNumber(10,30);\r\ndisplay.text(randomNumber);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "33"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISE!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Convert the following function into an arrow function\r\nfunction isPasswordCorrect(inputPassword, correctPassword) {\r\n    return inputPassword === correctPassword\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "More iterations methods on arrays: map, filter and reduce"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// map function, creates a new array with the function provided\r\nlet numbers = [2,3,5,7,13];\r\nlet numbersSquared = [];\r\nfor(let number of numbers){\r\n    numbersSquared.push(number * number);\r\n}\r\ndisplay.text(numbersSquared);\r\n// an optimized way using map\r\nlet numbersSquaredWithMap = numbers.map((num) => num * num);\r\ndisplay.text(numbersSquaredWithMap);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "4,9,25,49,169"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "4,9,25,49,169"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// filter function, returns the value if condition is met\r\nlet numbers = [2,13,16,24,35,46,49,61];\r\nlet oddNumbers = [];\r\nfor(let i = 0; i < numbers.length; i++){\r\n    if(numbers[i] % 2 !== 0){\r\n        oddNumbers.push(numbers[i]);\r\n    }\r\n}\r\ndisplay.text(oddNumbers);\r\nlet oddNumbersWithFilter = numbers.filter((num) => (num % 2) !== 0);\r\ndisplay.text(oddNumbersWithFilter);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "13,35,49,61"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "13,35,49,61"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// reduce function, reduces de function to a unique value\r\nlet numbers = [1,2,3,4,5];\r\nlet total = 0;\r\nfor(let i = 0; i < numbers.length; i++){\r\n    total += numbers[i];\r\n}\r\ndisplay.text(total);\r\nlet totalWithReduce = numbers.reduce((accumulator, number) => accumulator + number, 0); // 0 represents the initial value of the accumulator\r\ndisplay.text(totalWithReduce);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "15"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "15"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "EXERCISES!!!"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Complete the below questions using this array:\r\nconst array = [\r\n    {\r\n        username: \"john\",\r\n        team: \"red\",\r\n        score: 5,\r\n        items: [\"ball\", \"book\", \"pen\"]\r\n    },\r\n    {\r\n        username: \"becky\",\r\n        team: \"blue\",\r\n        score: 10,\r\n        items: [\"tape\", \"backpack\", \"pen\"]\r\n    },\r\n    {\r\n        username: \"susy\",\r\n        team: \"red\",\r\n        score: 55,\r\n        items: [\"ball\", \"eraser\", \"pen\"]\r\n    },\r\n    {\r\n        username: \"tyson\",\r\n        team: \"green\",\r\n        score: 1,\r\n        items: [\"book\", \"pen\"]\r\n    },\r\n\r\n];\r\n\r\n//Create an array using map that has all the usernames with a capital letter to each of the usernames\r\n\r\n//Filter the array to only include users who are on team: red\r\n\r\n//Find out the total score of all users using reduce"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Enums: A good way to set a specific set of options for something (In Javascript we use pseudo-enums, as enums are not fully implemented)"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let somePerson = {\r\n    name: \"Jack\",\r\n    age: 18,\r\n    sex: \"Male\"\r\n}\r\nfunction saySomethingBarneyStinson(person){\r\n    if(person.sex.toLocaleLowerCase() === \"male\")\r\n        return \"A Bro is always entitled to do something stupid, as long as the rest of his Bros are all doing it.\";\r\n    else if(person.sex.toLowerCase() === \"female\")\r\n        return \"When I get sad, I stop being sad and be awesome instead\";\r\n    else\r\n        return \"I think tonight is going to be de — wait for it — lightful.\";\r\n}\r\ndisplay.text(saySomethingBarneyStinson(somePerson));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "A Bro is always entitled to do something stupid, as long as the rest of his Bros are all doing it."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// With a pseudo-enum, we limit the posibilities of a certain amount of options\r\nconst Sex = {\r\n    Male: 'male',\r\n    Female: 'female',\r\n    Undefined: 'undefined',\r\n  };\r\n\r\nlet somePerson = {\r\n    name: \"Ann\",\r\n    age: 18,\r\n    sex: Sex.Female\r\n}\r\nfunction saySomethingBarneyStinson(person){\r\n    if(person.sex == Sex.Male)\r\n        return \"A Bro is always entitled to do something stupid, as long as the rest of his Bros are all doing it.\";\r\n    else if(person.sex === Sex.Female)\r\n        return \"When I get sad, I stop being sad and be awesome instead\";\r\n    else\r\n        return \"I think tonight is going to be de — wait for it — lightful.\";\r\n}\r\ndisplay.text(saySomethingBarneyStinson(somePerson));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "When I get sad, I stop being sad and be awesome instead"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "html",
+            "source": [
+                "<img src=\"https://media.tenor.com/eDrlV9otYw0AAAAC/neil-patrick-harris-thumbs-up.gif\" height=200/>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<img src=\"https://media.tenor.com/eDrlV9otYw0AAAAC/neil-patrick-harris-thumbs-up.gif\" height=200/>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Callbacks: Passing functions as arguments (useful for calling a function after some processing)"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function getAttackResult(attackNum, randomNum){\r\n  if(attackNum == 1){\r\n    return randomNum(10,20)\r\n  }\r\n  else if(attackNum == 2){\r\n    return randomNum(5,15)\r\n  }\r\n  return randomNum(1,10)\r\n}\r\n\r\nfunction getRandonNumber(min, max) {\r\n  return Math.floor(min + Math.random() * (max-min));\r\n}\r\n    \r\nlet attackResult = getAttackResult(2, getRandonNumber);\r\ndisplay.text(attackResult);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "7"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function solicitudServidor(consulta, callback) {\r\n    // setTimeout has a callback function as parameter\r\n    setTimeout(function(){\r\n      var respuesta = consulta + \"lleno!\";\r\n      callback(respuesta);\r\n    },2500);\r\n  }\r\n  \r\n  function obtenerResultados(resultados){\r\n    display.text(\"Respuesta del servidor: \" + resultados);\r\n  }\r\n  \r\n  solicitudServidor(\"El vaso está medio \", obtenerResultados);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Respuesta del servidor: El vaso está medio lleno!"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
